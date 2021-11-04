@@ -32,8 +32,9 @@ const signup = router.post("/signup", async (req, res) => {
     "INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4) RETURNING user_id, email, is_admin, is_banned",
     [firstname, lastname, email, password]
   );
+  let account_number
   if(rows) {
-    const account_number = createNumber(rows[0].user_id)
+    account_number = createNumber(rows[0].user_id)
     const walletDetails = await pool.query(`INSERT INTO wallets (wallet_user_id, account_number) VALUES ($1, $2) RETURNING wallet_id, account_number`,
     [rows[0].user_id, account_number])
 
