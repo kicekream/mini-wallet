@@ -23,6 +23,9 @@ app.use("/v1/transactions", transferFunds);
 app.use("/v1/users", getUsers);
 app.use("/v1/users", getUser);
 
+app.get('*', function(req, res){
+  res.status(404).send('Page Not found, goto https://documenter.getpostman.com/view/6468654/UVC2FUDH for available endpoints');
+});
 
 if (!process.env.jwtPrivateKey) {
     console.error("jwtPrivateKey is not defined in env variable");
