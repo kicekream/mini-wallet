@@ -2,6 +2,11 @@ Mini-wallet involves wallet system, where users can have amount in their wallet,
 
 Wallets can be funded and transfereed between users.
 
+You are to create a .env file at the base folder.
+The env should contain DATABASE_URL, NODE_ENV, jwtPrivateKey and PORT
+
+run the init.sql script to create tables
+
 API: https://warm-stream-05647.herokuapp.com/
 
 Postman Documentation: https://documenter.getpostman.com/view/6468654/UVC2FUDH
