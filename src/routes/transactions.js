@@ -25,7 +25,7 @@ ON t.receiver_id = w.wallet_user_id`
 
     try {
         const {rows} = await pool.query(data)
-        if(!rows[0]) return res.status(404).json({ status: 404, data: "No user found" });
+        if(!rows[0]) return res.status(404).json({ status: 404, data: "No transaction found" });
         res.json({ status: 200, data: rows });
     } catch(error) {
         res.status(500).send("An error occured fetching all Transactions")
