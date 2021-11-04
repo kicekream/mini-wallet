@@ -1,6 +1,8 @@
 const express = require("express");
 const pool = require("../database/modelIndex");
 
+const { auth } = require("../middleware/auth");
+
 const router = express.Router();
 router.use(express.json());
 
