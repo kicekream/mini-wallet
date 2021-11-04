@@ -40,7 +40,7 @@ const fundWallet = router.put("/fund", [auth, admin], async (req, res) => {
   }
 });
 
-const makeAdmin = router.put("/makeadmin/:id", async(req, res)=> {
+const makeAdmin = router.put("/makeadmin/:id", auth, async(req, res)=> {
     try {
         const {id} = req.params
         let { rows } = await pool.query(

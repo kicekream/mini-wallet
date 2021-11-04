@@ -4,7 +4,7 @@ const pool = require("../database/modelIndex");
 const router = express.Router();
 router.use(express.json());
 
-const getUsers = router.get("/", async (req, res) => {
+const getUsers = router.get("/", auth, async (req, res) => {
   try {
     const { rows } = await pool.query(
       `SELECT  firstname, lastname, email, password, is_admin FROM users ORDER BY user_id ASC`
@@ -17,7 +17,7 @@ const getUsers = router.get("/", async (req, res) => {
   }
 });
 
-const getUser = router.get("/:id", async (req, res) => {
+const getUser = router.get("/:id", auth, async (req, res) => {
   try {
     const { rows } = await pool.query("SELECT * FROM users WHERE user_id=$1", [
       req.params.id,

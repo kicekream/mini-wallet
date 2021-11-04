@@ -11,7 +11,7 @@ const { generateTxId } = require("../utils/generateTxId");
 const router = express.Router();
 router.use(express.json());
 
-const allTransactions = router.get("/all", async(req, res)=>{
+const allTransactions = router.get("/all", auth, async(req, res)=>{
 const data = `SELECT u.firstname as sender, us.firstname as receiver, t.amount as amount, t.transaction_code as tx_id, w.account_number as receiver_account_number, t.created_at as tx_date  
 FROM transactions t
 JOIN 
