@@ -40,7 +40,7 @@ const signup = router.post("/signup", async (req, res) => {
     console.log(`account number created`);
   }
   const token = generateAuthToken(rows[0]);
-  res.header("x-auth-token", token).send(rows[0]);
+  res.header("x-auth-token", token).json({status: 200, data: rows[0], account_number: account_number});
 });
 
 const login = router.post("/login", async (req, res) => {
